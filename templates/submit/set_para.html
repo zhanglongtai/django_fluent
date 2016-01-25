@@ -1,0 +1,12 @@
+<html>
+<head>
+<div>
+    <form action="{% url 'submit:setPara' %}" method="post">
+    {% csrf_token %}
+        Iteration:
+        <input type="text" name="iterateNum" />
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+</head>
+</html>
