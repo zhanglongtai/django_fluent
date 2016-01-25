@@ -13,19 +13,19 @@ def submitCasDat(request):
     if request.method == 'POST':
         formContext = SubmitForm(request.POST, request.FILES)
         if formContext.is_valid():
-            # acqur
+            # acquire data
             task_title = formContext.cleaned_data['taskname']
             task_cas = formContext.cleaned_data['casfile']
             task_dat = formContext.cleaned_data['datfile']
 
-            # write to database
+            # import to database
             task = ComIns()
             task.title = task_title
             task.cas = task_cas
             task.dat = task_dat
             task.save()
 
-            # writ jou file
+            # write .jou file
             p = ComIns.objects.get(title=task_title)
 
             with open('/home/tiger/Projects/Django/Fluent/media/test.jou', 'w') as f:
