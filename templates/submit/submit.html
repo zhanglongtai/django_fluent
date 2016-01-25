@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/static/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<body>
+  <div>
+    <h1>Submit Your Task</h1>
+    <hr>
+    <div>
+        <form action="{% url 'submit:submitCasDat' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>Your Task Name:</p>
+            <input type="text" name="taskname" />
+            <!--
+            <input type="submit" name="conform" class="btn" value="conform"/>
+            -->
+            <hr>
+            <p>Upload Your Case File</p>
+            <input type='text' name='casname' id='casname' /> 
+            <input type="file" name="casfile" class="file" id="fileField" size="28" onchange="document.getElementById('casname').value=this.value" />
+            <!--
+            <input type="submit" name="submit" class="btn" value="upload" />
+            -->
+            <hr>
+            <p>Upload Your Data File</p>
+            <input type='text' name='datname' id='datname' /> 
+            <input type="file" name="datfile" class="file" id="fileField" size="28" onchange="document.getElementById('datname').value=this.value" />
+            <!--
+            <input type="submit" name="submit" class="btn" value="upload" />
+            -->
+            <hr>
+            <input type='submit' value="Submit" />
+        </form>
+</body>
+</html>
